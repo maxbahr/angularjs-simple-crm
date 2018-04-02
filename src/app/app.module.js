@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { customersModule } from './customers/customers.module';
 
 const materialConfig = $mdThemingProvider => {
-  $mdThemingProvider.theme('default');
+  $mdThemingProvider.theme('default')
+  .primaryPalette('grey')
+  .accentPalette('orange');
 };
 
 export const appModule = angular

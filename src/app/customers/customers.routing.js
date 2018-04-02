@@ -5,25 +5,25 @@ export const routing = ($urlRouterProvider, $locationProvider, $stateProvider) =
     $stateProvider.state({
         name: 'list',
         url: '/customers/list',
-        component: 'listCustomers'
+        component: 'list'
     });
 
     $stateProvider.state({
         name: 'add',
         url: '/customers/add',
-        component: 'addCustomer'
+        component: 'add'
     });
 
     $stateProvider.state({
         name: 'edit',
         url: '/customers/edit/:id',
-        component: 'editCustomer'
+        component: 'edit'
     });
 
     $stateProvider.state({
         name: 'details',
         url: '/customers/details/:id',
-        component: 'customerDetails'
+        component: 'details'
     });
 
 }

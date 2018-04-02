@@ -3,6 +3,6 @@ import { AddController } from './add.controller'
 
 export class AddComponent {
     template = addTemplate;
-    controllerAs = 'addCustomer';
+    controllerAs = 'add';
     controller = AddController;
 }

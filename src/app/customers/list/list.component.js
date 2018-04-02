@@ -3,6 +3,6 @@ import { ListController } from './list.controller'
 
 export class ListComponent {
     template = listTemplate;
-    controllerAs = 'listCustomers';
+    controllerAs = 'list';
     controller = ListController;
 }

@@ -1,9 +1,48 @@
+import { customersService } from '../customers.service';
+
 export class ListController {
-    constructor($state) {
+    constructor(customersService, $state, $scope, $mdDialog) {
         this.$state = $state;
+        this.customersService = customersService;
+        this.$scope = $scope;
+        this.$mdDialog = $mdDialog;
     }
 
-    //edit
-    //showDetails
-    //Delete
+    $onInit = () => {
+        this.customersService.getList()
+            .then((res) => {
+                res.json().then(data => {
+                    this.customers = data.customers;
+                    this.$scope.$applyAsync();
+                })
+            });
+    }
+
+
+    edit = (customer) => {
+        let id = customer.id;
+        this.$state.go('edit', { id: id });
+    }
+
+    showDetails = (customer) => {
+        let cust = customer;
+        
+        this.$mdDialog.show(
+            this.$mdDialog.alert()
+              .parent(angular.element(document.querySelector('#popupContainer')))
+              .clickOutsideToClose(true)
+              .title('This is an alert title')
+              .textContent(cust.name)
+              .ariaLabel('Customer details')
+              .ok('Ok')
+            //   .targetEvent(ev)
+          );
+    }
+    
+    delete = (id) => {
+        this.customersService.delete(id);
+        const index = this.customers.map(customer => customer.id).indexOf(id);
+        this.customers.splice(index, 1);
+    }
+
 }

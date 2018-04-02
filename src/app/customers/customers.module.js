@@ -1,13 +1,16 @@
 import { module } from 'angular';
 import { CustomersComponent } from './customers.component';
+import { CustomersService } from './customers.service';
 import { routing } from './customers.routing';
 import { listCustomersModule } from './list/list.module';
 import { addCustomerModule } from './add/add.module';
+import { editCustomerModule } from './edit/edit.module';
 
 export const customersModule = module('app.customers', [
     listCustomersModule.name,
-    addCustomerModule.name
+    addCustomerModule.name,
+    editCustomerModule.name
 ])
     .component('customers', new CustomersComponent())
     .config(routing)
-    // .service('customersService', CustomersService);
+    .service('customersService', CustomersService);
