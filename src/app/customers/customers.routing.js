@@ -23,7 +23,7 @@ export const routing = ($urlRouterProvider, $locationProvider, $stateProvider) =
     $stateProvider.state({
         name: 'details',
         url: '/customers/details/:id',
-        component: 'details'
+        component: 'customerDetails'
     });
 
 }

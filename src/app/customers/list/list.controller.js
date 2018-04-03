@@ -1,6 +1,7 @@
 import { customersService } from '../customers.service';
 
 export class ListController {
+
     constructor(customersService, $state, $scope, $mdDialog) {
         this.$state = $state;
         this.customersService = customersService;
@@ -25,24 +26,13 @@ export class ListController {
     }
 
     showDetails = (customer) => {
-        let cust = customer;
-        
-        this.$mdDialog.show(
-            this.$mdDialog.alert()
-              .parent(angular.element(document.querySelector('#popupContainer')))
-              .clickOutsideToClose(true)
-              .title('This is an alert title')
-              .textContent(cust.name)
-              .ariaLabel('Customer details')
-              .ok('Ok')
-            //   .targetEvent(ev)
-          );
+        let id = customer.id;
+        this.$state.go('details', { id: id });
     }
-    
+
     delete = (id) => {
         this.customersService.delete(id);
         const index = this.customers.map(customer => customer.id).indexOf(id);
         this.customers.splice(index, 1);
     }
-
 }

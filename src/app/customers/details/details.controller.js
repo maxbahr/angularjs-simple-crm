@@ -1,7 +1,7 @@
 import { customersService } from '../customers.service';
 import { Customer } from '../model/customer';
 
-export class EditController {
+export class DetailsController {
     constructor(customersService, $stateParams, $scope, $state) {
         this.customersService = customersService;
         this.$stateParams = $stateParams;
@@ -20,20 +20,9 @@ export class EditController {
             });
     }
 
-    edit = () => {
-        this.customersService.add(this.model).then(
-            (res) => {
-                this.$state.go('list');
-            }
-        ).catch(err => {
-            console.log(err);
-        });
-    }
-
-    reset = () => {
-        const id = this.model.id;
-        this.model = {};
-        this.model.id = id;        
+    edit = (customer) => {
+        const id = this.$stateParams.id;
+        this.$state.go('edit', { id: id });
     }
 
     back = () => {

@@ -1,44 +1,40 @@
-<md-card class="edit-card">
+<md-card class="customerDetails-card">
 	<md-card-header>
 		<md-card-header-text>
-			<h1 layout="row" layout-align="center center">Edit customer</h1>
-      <!-- <div>{{add.model.name}}</div> -->
+			<h1 layout="row" layout-align="center center">Customer details</h1>
 		</md-card-header-text>
 	</md-card-header>
 	<md-card-content>
-		<form ng-submit="edit.edit()">
+		<form>
 			<div layout="row" layout-align="center center">
 				<md-input-container flex>
 					<label>Name</label>
-					<input type="text" ng-model="edit.model.name">
+					<input type="text" ng-model="customerDetails.model.name" ng-readonly='true'>
 				</md-input-container>
 			</div>
 			<div layout="row" layout-align="center center">
 				<md-input-container flex>
 					<label>Company</label>
-					<input type="text" ng-model="edit.model.company">
+					<input type="text" ng-model="customerDetails.model.company" ng-readonly='true'>
 				</md-input-container>
 			</div>
 			<div layout="row" layout-align="center center">
 				<md-input-container flex>
 					<label>Email</label>
-					<input type="text" ng-model="edit.model.email">
+					<input type="text" ng-model="customerDetails.model.email" ng-readonly='true'>
 				</md-input-container>
 			</div>
 			<div layout="row" layout-align="center center">
 				<md-input-container flex>
 					<label>Phone</label>
-					<input type="text" ng-model="edit.model.phone">
+					<input type="text" ng-model="customerDetails.model.phone" ng-readonly='true'>
 				</md-input-container>
 			</div>
 			<div layout="row" layout-align="center center">
-				<md-button type="submit" class="md-primary">
-					Edit customer
+				<md-button class="md-primary" ng-click="customerDetails.edit(customer)">
+					Edit
 				</md-button>
-				<md-button class="md-accent" ng-click="edit.reset()">
-					clear
-				</md-button>
-				<md-button type="reset" class="md-warn" ng-click="edit.back()">
+				<md-button type="reset" class="md-warn" ng-click="customerDetails.back()">
 					go back
 				</md-button>
 			</div>
